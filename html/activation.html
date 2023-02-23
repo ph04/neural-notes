@@ -188,16 +188,141 @@
 <a href="#activation"><h1 id="activation">Activation</h1></a>
 <a href="#def"><h2 id="def">Def</h2></a>
 <ul>
+<li><strong>ReLU</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="math inline">\textrm{ReLU}(x) = \left \{
+\begin{array}{l} x &amp; x \ge 0 \\ 0 &amp; x \lt 0 \end{array} \right.
+= \max(x,0) = x^+</span>
+<ul>
+<li><span class="math inline">\textrm{ReLU}</span> stands for
+<em>Rectified Linear Unit</em></li>
+<li><em>pros</em>
+<ul>
+<li><span class="math inline">\textrm{ReLU}</span> is a very common
+activation function, because it has been shown empirically that it
+allows faster training of deep neural architectures on large and complex
+datasets</li>
+<li>it is very fast to compute</li>
+</ul></li>
+<li><em>cons</em>
+<ul>
+<li><span class="math inline">\textrm{ReLU}</span> is not differentiable
+at <span class="math inline">0</span>, although it can be differentiated
+anywhere else, so the derivative on <span class="math inline">0</span>
+is usually arbitrarily chosen to be <span class="math inline">0</span>
+or <span class="math inline">1</span></li>
+<li>differently from other activation function, the output of <span
+class="math inline">\textrm{ReLU}</span> is unbounded</li>
+</ul></li>
+</ul></li>
+</ul>
+</blockquote>
+<a href="#oss"><h2 id="oss">Oss</h2></a>
+<ul>
+<li><strong>Hp</strong>
+<ul>
+<li><span class="math inline">a \in \mathbb{R}</span></li>
+</ul></li>
+<li><strong>Th</strong>
+<ul>
+<li><span class="math inline">\textrm{ReLU}(a \cdot x)= a \cdot
+\textrm{ReLU}(x)</span></li>
+</ul></li>
+<li><strong>Dim</strong>
+<ul>
+<li><span class="math inline">\textrm{ReLu}(a \cdot x) = \max(a \cdot x,
+0) = a \cdot \max(x, 0) = a \cdot \textrm{ReLU}(x)</span></li>
+</ul></li>
+</ul>
+<a href="#def-1"><h2 id="def-1">Def</h2></a>
+<ul>
+<li><strong>Softplus</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="math inline">\textrm{softplus}(x)= \ln(1 + e^x)</span>
+<ul>
+<li>it is a smoother version of <span
+class="math inline">\textrm{ReLU}</span></li>
+</ul></li>
+</ul>
+</blockquote>
+<a href="#def-2"><h2 id="def-2">Def</h2></a>
+<ul>
+<li><strong>Sigmoid</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="math inline">\sigma(x):= \dfrac{1}{1 +
+e^{-x}}</span></li>
+</ul>
+</blockquote>
+<a href="#oss-1"><h2 id="oss-1">Oss</h2></a>
+<ul>
+<li><strong>Th</strong>
+<ul>
+<li><span class="math inline">\sigma(x) = 1 - \sigma(-x)</span></li>
+</ul></li>
+<li><strong>Dim</strong>
+<ul>
+<li><span class="math inline">\sigma(x) = \dfrac{1}{1 + e^{-x}} =
+\dfrac{1 \cdot e^x}{(1 + e^{-x})\cdot e^{x}}=\dfrac{e^x}{e^x + 1} =
+\dfrac{1 - e^x + 1}{e^x + 1}=1 - \dfrac{1}{1 + e^x}=1 -
+\sigma(-x)</span></li>
+</ul></li>
+</ul>
+<a href="#def-3"><h2 id="def-3">Def</h2></a>
+<ul>
+<li><strong>Sine</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="math inline">\sin(x)</span></li>
+</ul>
+</blockquote>
+<a href="#def-4"><h2 id="def-4">Def</h2></a>
+<ul>
+<li><strong>Hyperbolic tangent</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="math inline">\tanh(x) = \dfrac{e^x - e^{-x}}{e^x +
+e^{-x}}</span>
+<ul>
+<li>because of this alternative definition of the hyperbolic tangent,
+it’s possible to easily evaluate the derivative of <span
+class="math inline">\tanh</span></li>
+</ul></li>
+</ul>
+</blockquote>
+<a href="#oss-2"><h2 id="oss-2">Oss</h2></a>
+<ul>
+<li><strong>Th</strong>
+<ul>
+<li><span class="math inline">\dfrac{d}{dx}\tanh(x) =
+\textrm{sech}^2(x)</span></li>
+</ul></li>
+<li><strong>Dim</strong>
+<ul>
+<li><span
+class="math inline">\dfrac{d}{dx}\tanh(x)=\dfrac{d}{dx}\left(\dfrac{e^x
+- e^{-x}}{e^x + e^{-x}}\right)=\dfrac{(e^x +
+e^{-x})\cdot\dfrac{d}{dx}(e^x-e^{-x})-(e^x-e^{-x})\cdot\dfrac{d}{dx}(e^x
++ e^{-x})}{(e^x +e^{-x})^2}=\dfrac{(e^x + e^{-x})\cdot
+(e^x+e^{-x})-(e^x-e^{-x})\cdot(e^x-e^{-x})}{(e^x+e^{-x})^2}=\dfrac{(e^{2x}+1+1+e^{-2x})-(e^{2x}-1-1+e^{-2x})}{(e^x+e^{-x})^2}=\dfrac{4}{(e^x+e^{-x})^2}=\left(\dfrac{2}{e^x+e^{-x}}\right)^2=\textrm{sech}^2(x)</span></li>
+</ul></li>
+</ul>
+<a href="#def-5"><h2 id="def-5">Def</h2></a>
+<ul>
 <li><strong>Softmax</strong></li>
 </ul>
 <blockquote>
 <ul>
-<li><span class="math inline">\mathbb{F}</span> field</li>
-<li><span class="math inline">V</span> vector space over <span
-class="math inline">\mathbb{F}</span></li>
-<li><span class="math inline">v \in V \mid \left(\begin{array}{c}x_1 \\
-\vdots \\ x_n\end{array}\right)</span></li>
-<li><span class="math inline">\textrm{softmax}(v) =
+<li><span class="math inline">x =\left(\begin{array}{c}x_1 \\ \vdots \\
+x_n\end{array}\right)</span></li>
+<li><span class="math inline">\textrm{softmax}(x) =
 \dfrac{1}{\displaystyle{\sum_{i =1}^n{e^{x_i}}}}\left( \begin{array}{c}
 e^{x_1} \\ \vdots \\ e^{x_n} \end{array}\right)</span>
 <ul>
@@ -217,30 +342,29 @@ to be bigger than <span class="math inline">1</span></li>
 class="math inline">x^2</span> won’t work, because it is not an
 injective funciton, and does not preserve the information about the sign
 of the original number</li>
-<li>note that <span class="math inline">\textrm{softmax}</span> is
+<li>note that, when considering <span
+class="math inline">\textrm{softmax}</span> the operations performed on
+one single value <span class="math inline">x_i</span> of the input
+vector <span class="math inline">x</span>, the function is
 differentiable, thus optimizable through backpropagation</li>
 </ul></li>
 </ul>
 </blockquote>
-<a href="#oss"><h2 id="oss">Oss</h2></a>
+<a href="#oss-3"><h2 id="oss-3">Oss</h2></a>
 <ul>
 <li><strong>Hp</strong>
 <ul>
-<li><span class="math inline">\mathbb{F}</span> field</li>
-<li><span class="math inline">V</span> vector space over <span
-class="math inline">\mathbb{F}</span></li>
-<li><span class="math inline">\lambda \in \mathbb{F}</span></li>
-<li><span class="math inline">v \in V \mid \left(\begin{array}{c}x_1 \\
-\vdots \\ x_n\end{array}\right)</span></li>
+<li><span class="math inline">x =\left(\begin{array}{c}x_1 \\ \vdots \\
+x_n\end{array}\right)</span></li>
 </ul></li>
 <li><strong>Th</strong>
 <ul>
-<li><span class="math inline">\textrm{softmax}(v + \lambda) =
-\textrm{softmax}(v)</span></li>
+<li><span class="math inline">\textrm{softmax}(x + \lambda) =
+\textrm{softmax}(x)</span></li>
 </ul></li>
 <li><strong>Dim</strong>
 <ul>
-<li><span class="math inline">\textrm{softmax}(v + \lambda) =
+<li><span class="math inline">\textrm{softmax}(x + \lambda) =
 \dfrac{1}{\displaystyle{\sum_{i =1}^n{e^{x_i + \lambda}}}}\left(
 \begin{array}{c} e^{x_1 + \lambda} \\ \vdots \\ e^{x_n + \lambda}
 \end{array}\right) = \dfrac{1}{\displaystyle{\sum_{i =1}^n{(e^{x_i}\cdot
@@ -250,7 +374,7 @@ e^ \lambda)}}}\left( \begin{array}{c} e^{x_1}\cdot e^\lambda \\ \vdots
 =1}^n{e^{x_i}x}}}\left( \begin{array}{c} e^{x_1}\\ \vdots \\ e^{x_n}
 \end{array}\right) = \dfrac{1}{\displaystyle{\sum_{i
 =1}^n{e^{x_i}}}}\left( \begin{array}{c} e^{x_1} \\ \vdots \\ e^{x_n}
-\end{array}\right) = \textrm{softmax}(v)</span></li>
+\end{array}\right) = \textrm{softmax}(x)</span></li>
 </ul></li>
 </ul>
 </body>

@@ -72,7 +72,7 @@
 >   - note that, to turn an array into a probability distribution it is only needed to divide each coefficient by the sum of the terms, but this approach assumes every coefficient of the vector is positive, otherwise the sum of the terms doesn't make sense
 >   - thus, $\forall i \in [1, n] \quad e^{x_i}$ trasforms every $x_i$ into a positive value, but it preserves the distinction between negative and positive values; in particular, negative values are going to be less than $1$, while positive values are going to be bigger than $1$
 >   - this also implies that a function such that $x^2$ won't work, because it is not an injective funciton, and does not preserve the information about the sign of the original number
->   - note that, when considering $\textrm{softmax}$ the operations performed on one single value $x_i$ of the input vector $x$, the function is differentiable, thus optimizable through backpropagation
+>   - note that, when considering the operations that $\textrm{softmax}$ performes on a single value $x_i$ of the input vector $x$, the function is differentiable, thus optimizable through backpropagation
 
 ## Oss
 

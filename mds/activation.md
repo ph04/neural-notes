@@ -20,7 +20,7 @@
 - **Th**
     - $\textrm{ReLU}(a \cdot x)= a \cdot \textrm{ReLU}(x)$
 - **Dim**
-    - $\textrm{ReLu}(a \cdot x) = \max(a \cdot x, 0) = a \cdot \max(x, 0) = a \cdot \textrm{ReLU}(x)$
+    - $\textrm{ReLU}(a \cdot x) = \max(a \cdot x, 0) = a \cdot \max(x, 0) = a \cdot \textrm{ReLU}(x)$
 
 ## Def
 
